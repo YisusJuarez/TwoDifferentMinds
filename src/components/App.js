@@ -2,6 +2,7 @@ import React from 'react';
 import '../css/App.css';
 import ButtonAppBar from './Navbar';
 import Navcontent from './Navcontent';
+
 //Prueba de vistas
 
 import Inicio from "../views/Inicio";
@@ -12,6 +13,7 @@ import Inicio from "../views/Inicio";
 function App() {
   return (
     <div className="App">
+       
       <ButtonAppBar></ButtonAppBar>
       <Navcontent></Navcontent>
       <Inicio></Inicio>
