@@ -49,7 +49,7 @@ export default function Header() {
       <div className={classes.overlay} />
       <Container maxWidth="lg">
         <Grid container>
-          <Grid item md={12}>
+          <Grid item md={12} xs={12} lg={12} sm={12}>
             <div className={classes.mainFeaturedPostContent}>
               <Typography
                 component="h1"
