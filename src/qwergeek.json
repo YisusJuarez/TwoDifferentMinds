@@ -1,0 +1,44 @@
+{
+  "Inicio": {
+    "Destacados": [
+      {
+        "Titulo": "Hola",
+        "Descripcion": "",
+        "Imagen": "../../img.png",
+        "autor": "Jesus"
+      },
+      {
+        "Titulo": "Hola",
+        "Descripcion": "",
+        "Imagen": "../../img.png",
+        "autor": "Jesus"
+      },
+      {
+        "Titulo": "Hola",
+        "Descripcion": "",
+        "Imagen": "../../img.png",
+        "autor": "Jesus"
+      }
+    ],
+    "Recomendados": [
+      {
+        "Titulo": "Hola",
+        "Descripcion": "",
+        "Imagen": "../../img.png",
+        "autor": "Jesus"
+      },
+      {
+        "Titulo": "Hola",
+        "Descripcion": "",
+        "Imagen": "../../img.png",
+        "autor": "Jesus"
+      },
+      {
+        "Titulo": "Hola",
+        "Descripcion": "",
+        "Imagen": "../../img.png",
+        "autor": "Jesus"
+      }
+    ]
+  }
+}

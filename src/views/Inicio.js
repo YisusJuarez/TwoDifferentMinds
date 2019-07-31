@@ -33,7 +33,6 @@ class Inicio extends React.Component {
             <Grid item md={4} xs={12} lg={4} sm={6}>
               <Cards />
             </Grid>
-            
           </Grid>
           <Divider variant="fullWidth"  className="divider"/>
           <Typography variant="h5" align="left" gutterBottom>
