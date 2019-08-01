@@ -1,23 +1,23 @@
 {
-  "Inicio": {
+  "InicioData": {
     "Destacados": [
       {
-        "Titulo": "Hola",
+        "Titulo": "FaceApp, ¿Un Peligro Para Nuestros Datos?",
         "Descripcion": "",
         "Imagen": "../../img.png",
-        "autor": "Jesus"
+        "autor": "Jesus 1"
       },
       {
-        "Titulo": "Hola",
+        "Titulo": "ACÁ ENTRE NOS… La Violencia",
         "Descripcion": "",
         "Imagen": "../../img.png",
-        "autor": "Jesus"
+        "autor": "Jesus 2"
       },
       {
-        "Titulo": "Hola",
+        "Titulo": "ACÁ ENTRE NOS… El Maíz Nuestro De Cada Día",
         "Descripcion": "",
         "Imagen": "../../img.png",
-        "autor": "Jesus"
+        "autor": "Jesus 2"
       }
     ],
     "Recomendados": [

@@ -7,9 +7,18 @@ import { Container } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { Divider } from "@material-ui/core";
+import { InicioData } from "./qwergeek.json";
 
 class Inicio extends React.Component {
+  state = {
+    datos: InicioData
+  };
+componentDidMount(){
+
+  return(console.log(this.state.datos.Destacados[0].Titulo))
+}
   render() {
+   
     return (
       <div>
         <Header />
@@ -18,23 +27,25 @@ class Inicio extends React.Component {
             Artículos Recientes
           </Typography>
           <Grid container spacing={2}>
-            <Grid item md={4} xs={12} lg={4} sm={6}>
-              <Cards />
-            </Grid>
-            <Grid item md={4} xs={12} lg={4} sm={6}>
-              <Cards />
-            </Grid>
-            <Grid item md={4} xs={12} lg={4} sm={12}>
-              <Cards />
-            </Grid>
-            <Grid item md={8} xs={12} lg={8} sm={6}>
-              <Cards />
-            </Grid>
-            <Grid item md={4} xs={12} lg={4} sm={6}>
-              <Cards />
-            </Grid>
+          <Grid item md={4} xs={12} lg={4} sm={6}>
+            <Cards titulo={this.state.datos.Destacados[0].Titulo}/>
           </Grid>
-          <Divider variant="fullWidth"  className="divider"/>
+          <Grid item md={4} xs={12} lg={4} sm={6}>
+            <Cards titulo={this.state.datos.Destacados[1].Titulo} />
+          </Grid>
+          <Grid item md={4} xs={12} lg={4} sm={12}>
+            <Cards titulo={this.state.datos.Destacados[2].Titulo}/>
+          </Grid>
+          <Grid item md={8} xs={12} lg={8} sm={6}>
+            <Cards />
+          </Grid>
+          <Grid item md={4} xs={12} lg={4} sm={6}>
+            <Cards />
+          </Grid>
+        </Grid>
+         
+
+          <Divider variant="fullWidth" className="divider" />
           <Typography variant="h5" align="left" gutterBottom>
             Artículos Recomendados
           </Typography>
@@ -51,7 +62,6 @@ class Inicio extends React.Component {
             <Grid item md={4} xs={12} lg={4} sm={6}>
               <Cards />
             </Grid>
-            
           </Grid>
         </Container>
       </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -10,41 +9,44 @@ import Typography from "@material-ui/core/Typography";
 //Import de imagen de ejemplo
 import Imagen from "../card-example.jpg";
 
-const useStyles = makeStyles({
-  card: {
-    width: "100%"
+const useStyles = makeStyles(theme => ({
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8)
   },
-  media: {
+  card: {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column"
+  },
+  cardMedia: {
     height: 180
+  },
+  cardContent: {
+    flexGrow: 1
   }
-});
+}));
 
 export default function Cards(props) {
   const classes = useStyles();
 
   return (
     <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          className={classes.media}
-          image={Imagen}
-          title="titulo"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Titulo
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Intro del artículo
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+      <CardMedia className={classes.cardMedia} image={Imagen} title="titulo" />
+
+      <CardContent className={classes.cardContent}>
+        <Typography gutterBottom variant="h5" component="h2">
+          {props.titulo}
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          Intro del artículo
+        </Typography>
+      </CardContent>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button variant="contained" color="primary"  size="small" >
           Compartir
         </Button>
-        <Button size="small" color="primary">
+        <Button variant="contained" size="small" color="secondary">
           Leer más
         </Button>
       </CardActions>
