@@ -5,7 +5,8 @@ import Navcontent from './Navcontent';
 
 //Prueba de vistas
 
-import Inicio from "../views/Inicio";
+// import Inicio from "../views/Inicio";
+import BlogPost from '../views/BlogPost';
 
 //Browser Router para enlazar vistas
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
@@ -16,7 +17,7 @@ function App() {
        
       <ButtonAppBar></ButtonAppBar>
       <Navcontent></Navcontent>
-      <Inicio></Inicio>
+      <BlogPost></BlogPost>
     </div>
   );
 }

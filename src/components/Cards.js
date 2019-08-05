@@ -43,10 +43,10 @@ export default function Cards(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained" color="primary"  size="small" >
+        <Button variant="contained"   size="small" >
           Compartir
         </Button>
-        <Button variant="contained" size="small" color="secondary">
+        <Button variant="contained" size="small" >
           Leer más
         </Button>
       </CardActions>
