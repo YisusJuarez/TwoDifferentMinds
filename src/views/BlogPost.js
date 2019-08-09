@@ -15,14 +15,14 @@ import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 /*Responsiveness */
-import Hidden from '@material-ui/core/Hidden';
+import Hidden from "@material-ui/core/Hidden";
 class BlogPost extends React.Component {
   render() {
     return (
       <Container maxWidth="lg" className="espacio-header">
         <Grid container spacing={3}>
           <Grid item xl={2} lg={2} md={2} sm={2} xs={12}>
-          <Grid container justify="center" alignItems="center">
+            <Grid container justify="center" alignItems="center">
               <Avatar className="avatar">H</Avatar>
             </Grid>
             <Typography
@@ -35,7 +35,6 @@ class BlogPost extends React.Component {
             <Typography align="center" variant="subtitle1" noWrap>
               Jesús Juárezo
             </Typography>
-            
           </Grid>
           <Grid item xl={7} lg={7} md={7} sm={10} xs={12}>
             <Typography align="left" variant="h4">
@@ -104,14 +103,14 @@ class BlogPost extends React.Component {
                 <MiniCards titulo="Titulo del articulo" />
               </Grid>
               <Grid item xl={6} sm={6} md={6} xs={12}>
-                <MiniCards  titulo="Titulo del articulo"/>
+                <MiniCards titulo="Titulo del articulo" />
               </Grid>
             </Grid>
           </Grid>
           <Grid item xl={3} lg={3} md={3} sm={12} xs={12}>
             <Grid container spacing={1}>
               <Grid item xl={12} lg={12} sm={12} xs={12}>
-              <Divider />
+                <Divider />
                 <Typography
                   align="left"
                   variant="subtitle1"
@@ -139,25 +138,24 @@ class BlogPost extends React.Component {
                 <Divider />
               </Grid>
               <Hidden smDown>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Typography
-                  align="left"
-                  variant="subtitle1"
-                  color="textSecondary"
-                >
-                  MÁS ARTÍCULOS
-                </Typography>
-                <Grid container spacing={2}>
-                  <Grid item xl={12} lg={12} md={12} sm={6} xs={12}>
-                    <MiniCards titulo="Titulo del articulo"/>
-                  </Grid>
-                  <Grid item xl={12} lg={12} md={12} sm={6} xs={12}>
-                    <MiniCards titulo="Titulo del articulo" />
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <Typography
+                    align="left"
+                    variant="subtitle1"
+                    color="textSecondary"
+                  >
+                    MÁS ARTÍCULOS
+                  </Typography>
+                  <Grid container spacing={2}>
+                    <Grid item xl={12} lg={12} md={12} sm={6} xs={12}>
+                      <MiniCards titulo="Titulo del articulo" />
+                    </Grid>
+                    <Grid item xl={12} lg={12} md={12} sm={6} xs={12}>
+                      <MiniCards titulo="Titulo del articulo" />
+                    </Grid>
                   </Grid>
                 </Grid>
-              </Grid>
               </Hidden>
-              
             </Grid>
           </Grid>
         </Grid>
@@ -166,4 +164,3 @@ class BlogPost extends React.Component {
   }
 }
 export default BlogPost;
-

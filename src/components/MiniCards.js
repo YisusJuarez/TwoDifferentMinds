@@ -34,7 +34,7 @@ export default function MiniCards(props) {
       <CardMedia className={classes.cardMedia} image={Imagen} title="titulo" />
 
       <CardContent className={classes.cardContent}>
-        <Typography Typography variant="subtitle1" gutterBottom>
+        <Typography  variant="subtitle1" gutterBottom>
           {props.titulo}
         </Typography>
       </CardContent>
