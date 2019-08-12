@@ -15,7 +15,7 @@ class Inicio extends React.Component {
   };
 componentDidMount(){
 
-  return(console.log(this.state.datos.Destacados[0].Titulo))
+  return(console.log(this.state.datos.Destacados[0].url))
 }
   render() {
    
@@ -28,7 +28,7 @@ componentDidMount(){
           </Typography>
           <Grid container spacing={2}>
           <Grid item md={4} xs={12} lg={4} sm={6}>
-            <Cards titulo={this.state.datos.Destacados[0].Titulo}/>
+            <Cards titulo={this.state.datos.Destacados[0].Titulo} idUrl={this.state.datos.Destacados[0].url}/>
           </Grid>
           <Grid item md={4} xs={12} lg={4} sm={6}>
             <Cards titulo={this.state.datos.Destacados[1].Titulo} />

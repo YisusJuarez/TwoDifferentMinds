@@ -33,7 +33,7 @@ class BlogPost extends React.Component {
               Autor
             </Typography>
             <Typography align="center" variant="subtitle1" noWrap>
-              Jesús Juárezo
+              Jesús Juárez
             </Typography>
           </Grid>
           <Grid item xl={7} lg={7} md={7} sm={10} xs={12}>
