@@ -31,10 +31,10 @@ componentDidMount(){
             <Cards titulo={this.state.datos.Destacados[0].Titulo} idUrl={this.state.datos.Destacados[0].url}/>
           </Grid>
           <Grid item md={4} xs={12} lg={4} sm={6}>
-            <Cards titulo={this.state.datos.Destacados[1].Titulo} />
+            <Cards titulo={this.state.datos.Destacados[1].Titulo} idUrl={this.state.datos.Destacados[0].url} />
           </Grid>
           <Grid item md={4} xs={12} lg={4} sm={12}>
-            <Cards titulo={this.state.datos.Destacados[2].Titulo}/>
+            <Cards titulo={this.state.datos.Destacados[2].Titulo} idUrl={this.state.datos.Destacados[0].url}/>
           </Grid>
           <Grid item md={8} xs={12} lg={8} sm={6}>
             <Cards />

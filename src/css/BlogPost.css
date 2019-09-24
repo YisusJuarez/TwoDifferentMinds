@@ -10,3 +10,9 @@
 .avatar{
   margin: 10,
 }
+.tags{
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
