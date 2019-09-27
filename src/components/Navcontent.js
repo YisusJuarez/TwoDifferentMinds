@@ -9,13 +9,14 @@ const useStyles = makeStyles(theme => ({
     borderBottom: `1px solid ${theme.palette.divider}`
   },
   toolbarTitle: {
-    flex: 1
+    flex: 1,
+    width:"100% !important"
   },
   toolbarSecondary: {
     justifyContent: "space-between",
     overflowX: "auto",
-
-    color: "white"
+    color: "white",
+  
   },
   bg: {
     backgroundColor: "#424242"

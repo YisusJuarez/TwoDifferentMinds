@@ -5,6 +5,7 @@ import Navcontent from "./Navcontent";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Inicio from "../views/Inicio";
 import BlogPost from "../views/BlogPost";
+import Footer from "../components/Footer";
 
 //Browser Router para enlazar vistas
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
@@ -22,6 +23,7 @@ class App extends React.Component{
           <Route render={()=><div>404 Not Found</div>} />
         </Switch>
       </BrowserRouter>
+      <Footer></Footer>
     </div>
     )
   }
