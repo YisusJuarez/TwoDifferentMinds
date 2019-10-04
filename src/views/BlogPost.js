@@ -22,32 +22,14 @@ class BlogPost extends React.Component {
   render() {
     return (
       <Container maxWidth="lg" className="espacio-header">
-        <Grid container spacing={3}>
-          {/* <Grid item xl={2} lg={2} md={2} sm={2} xs={12}>
-            <Grid container justify="center" alignItems="center">
-              <Avatar className="avatar">H</Avatar>
-            </Grid>
-            <Typography
-              align="center"
-              variant="subtitle1"
-              color="textSecondary"
-            >
-              Autor
-            </Typography>
-            <Typography align="center" variant="subtitle1" noWrap>
-              Jesús Juárez
-            </Typography>
-          </Grid> */}
+        <Grid container spacing={4}>
           <Grid item xl={9} lg={9} md={9} sm={12} xs={12}>
             <Typography align="left" variant="h4">
               FaceApp, ¿Un Peligro Para Nuestros Datos?
             </Typography>
-
             <Typography align="left" variant="subtitle1" color="textSecondary">
               21/08/2019 
             </Typography>
-            
-
             <Card className="img-card">
               <CardMedia className="img-art" image={Imagen} title="titulo" />
             </Card>
@@ -99,7 +81,6 @@ class BlogPost extends React.Component {
               <Tags />
               <Tags />
             </div>
-
             <Divider />
             <Typography
               align="left"

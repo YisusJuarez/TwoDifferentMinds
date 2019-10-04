@@ -1,5 +1,6 @@
 import React from "react";
 //Imports Header
+import Logo from "./Logo";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -24,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     right: 0,
     left: 0,
-    backgroundColor: "rgba(0,0,0,.2)"
+    backgroundColor: "rgba(0,0,0,.1)"
   },
   mainFeaturedPostContent: {
     position: "relative",
@@ -51,7 +52,7 @@ export default function Header() {
         <Grid container>
           <Grid item md={12} xs={12} lg={12} sm={12}>
             <div className={classes.mainFeaturedPostContent}>
-              <Typography
+              {/* <Typography
                 component="h1"
                 variant="h3"
                 color="inherit"
@@ -59,8 +60,9 @@ export default function Header() {
                 className={classes.textColor}
                 align="center"
               >
-                Todo sobre el mundo geek
-              </Typography>
+                TwoDifferentMinds
+              </Typography> */}
+              <Logo></Logo>
               <Typography variant="h5" className={classes.textColor} paragraph align="center">
                 Artículos, opiniones, reseñas y más...
               </Typography>

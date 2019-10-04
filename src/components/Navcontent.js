@@ -15,11 +15,11 @@ const useStyles = makeStyles(theme => ({
   toolbarSecondary: {
     justifyContent: "space-between",
     overflowX: "auto",
-    color: "white",
+    color: "black",
   
   },
   bg: {
-    backgroundColor: "#424242"
+    backgroundColor: "white"
   },
   toolbarLink: {
     padding: theme.spacing(1),

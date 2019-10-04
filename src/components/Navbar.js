@@ -3,11 +3,11 @@ import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import SearchIcon from "@material-ui/icons/Search";
+// import SearchIcon from "@material-ui/icons/Search";
 import MenuIcon from "@material-ui/icons/Menu";
-import Logo from "../logo.png";
+// import Logo from "../logo.png";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
@@ -19,14 +19,14 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1
   },
   backGround: {
-    backgroundColor: "#1b65a7"
+    backgroundColor: "#4fa0cb"
   },
   logoicon: {
     width: 150,
     height: "auto",
     paddingTop: 7
   },
-  boton:{
+  menuButtonHamburguer:{
     color: "white",
     borderColor: "white"
   }
@@ -46,19 +46,19 @@ export default function ButtonAppBar() {
             color="inherit"
             aria-label="menu"
           >
-            <MenuIcon />
+            <MenuIcon className={classes.menuButtonHamburguer} />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          {/* <Typography variant="h6" className={classes.title}>
             <img className={classes.logoicon} src={Logo} alt="img" />
-          </Typography>
-           <IconButton
+          </Typography> */}
+           {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="search"
           >
             <SearchIcon />
-          </IconButton>
+          </IconButton> */}
         </Toolbar>
         </Container>
       </AppBar>
