@@ -47,7 +47,7 @@ export default function Cards(props) {
         <Button variant="contained"   size="small" >
           Compartir
         </Button>
-        <Link to={`/articulo/${props.idUrl}`}>
+        <Link to={`/articulo/${props.ruta}`}>
         <Button variant="contained" size="small" >
           Leer más
         </Button>

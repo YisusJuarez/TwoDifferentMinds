@@ -5,8 +5,8 @@ class Logo extends React.Component{
         return(
             <div className="logo">
             <div id="blueslice"></div>
-            <h1 className="td">TW<h1 className="blue">O </h1></h1>
-            <h1 className="td"> D<h1 className="red">I<h1 className="td">FF<h1 className="red">E<h1 className="td">R<h1 className="red">E<h1 className="td">NT  </h1></h1></h1></h1></h1></h1></h1>
+            <h1 className="td">TW<span className="blue">O </span></h1>
+            <h1 className="td"> D<span className="red">I<span className="td">FF<span className="red">E<span className="td">R<span className="red">E<span className="td">NT  </span></span></span></span></span></span></h1>
             <h1 className="minds">MINDS</h1>
              <div id="redslice"></div>
         </div>

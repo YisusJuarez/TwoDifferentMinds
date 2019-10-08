@@ -8,21 +8,31 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { Divider } from "@material-ui/core";
 import { InicioData } from "./qwergeek.json";
-
-
+import Navcontent from "../components/Navcontent";
+//Axios
+import axios from 'axios';
 
 class Inicio extends React.Component {
   state = {
-    datos: InicioData
+    datos: InicioData,
+    datosArticuloInicio: []
   };
   componentDidMount() {
-
+    //OBTENER ARTICULOS DE INICIO
+    axios.get(`http://localhost:8082/api/inicio`)
+      .then(res => {
+        const datosArticuloInicio = res.data;
+        this.setState({ datosArticuloInicio });
+        console.log(res.data);
+      })
     return (console.log(this.state.datos.Destacados[0].url))
   }
+
   render() {
 
     return (
       <div>
+        <Navcontent></Navcontent>
         <Header />
         <Container maxWidth="lg">
           <Typography variant="h5" align="left" gutterBottom>
@@ -30,13 +40,13 @@ class Inicio extends React.Component {
           </Typography>
           <Grid container spacing={2}>
             <Grid item md={4} xs={12} lg={4} sm={6}>
-              <Cards titulo={this.state.datos.Destacados[0].Titulo} idUrl={this.state.datos.Destacados[0].url} />
+              <Cards titulo={this.state.datos.Destacados[0].Titulo} ruta={this.state.datos.Destacados[0].url} />
             </Grid>
             <Grid item md={4} xs={12} lg={4} sm={6}>
-              <Cards titulo={this.state.datos.Destacados[1].Titulo} idUrl={this.state.datos.Destacados[0].url} />
+              <Cards titulo={this.state.datos.Destacados[1].Titulo} ruta={this.state.datos.Destacados[0].url} />
             </Grid>
             <Grid item md={4} xs={12} lg={4} sm={12}>
-              <Cards titulo={this.state.datos.Destacados[2].Titulo} idUrl={this.state.datos.Destacados[0].url} />
+              <Cards titulo={this.state.datos.Destacados[2].Titulo} ruta={this.state.datos.Destacados[0].url} />
             </Grid>
             <Grid item md={8} xs={12} lg={8} sm={6}>
               <Cards />

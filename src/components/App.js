@@ -1,7 +1,5 @@
 import React from "react";
 import "../css/App.css";
-import ButtonAppBar from "./Navbar";
-import Navcontent from "./Navcontent";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Inicio from "../views/Inicio";
 import BlogPost from "../views/BlogPost";
@@ -14,8 +12,7 @@ class App extends React.Component{
   render(){
     return(
       <div className="App">
-      <ButtonAppBar />
-      <Navcontent />
+      {/* <ButtonAppBar /> */}
       <BrowserRouter>
         <Switch>
           <Route  exact path="/" component={Inicio} />
