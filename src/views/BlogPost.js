@@ -5,7 +5,6 @@ import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
-import Imagen from "../card-example.jpg";
 import Divider from "@material-ui/core/Divider";
 import MiniCards from "../components/MiniCards";
 import Tags from "../components/Tags";
@@ -57,6 +56,7 @@ class BlogPost extends React.Component {
     
   }
   render() {
+    var img = `http://localhost:8082/api/${this.state.ImgUrl}`
     return (
       <div>
         <Navcontent></Navcontent>
@@ -74,7 +74,7 @@ class BlogPost extends React.Component {
                 {this.state.Fecha}
             </Typography>
               <Card className="img-card">
-                <CardMedia className="img-art" image={Imagen} title="titulo" />
+                <CardMedia className="img-art" image={img} title="titulo" />
               </Card>
               <p className="text-align" dangerouslySetInnerHTML={{__html:this.state.Body}}>
                 

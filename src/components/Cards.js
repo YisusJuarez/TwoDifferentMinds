@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Link } from 'react-router-dom'
 //Import de imagen de ejemplo
-import Imagen from "../card-example.jpg";
+
 
 const useStyles = makeStyles(theme => ({
   cardGrid: {
@@ -31,28 +31,28 @@ const useStyles = makeStyles(theme => ({
 
 export default function Cards(props) {
   const classes = useStyles();
-
+  var img = `http://localhost:8082/api/${props.ruta}`
   return (
     <Card className={classes.card}>
-      <CardMedia className={classes.cardMedia} image={Imagen} title="titulo" />
+      <CardMedia className={classes.cardMedia} image={img} title="titulo" />
       <CardContent className={classes.cardContent}>
         <Typography gutterBottom variant="h5" component="h2">
           {props.titulo}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          {props.fecha} 
+          {props.fecha}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained"   size="small" >
+        <Button variant="contained" size="small" >
           Compartir
         </Button>
         <Link to={`/articulo/${props.ruta}`}>
-        <Button variant="contained" size="small" >
-          Leer más
+          <Button variant="contained" size="small" >
+            Leer más
         </Button>
         </Link>
-       
+
       </CardActions>
     </Card>
   );

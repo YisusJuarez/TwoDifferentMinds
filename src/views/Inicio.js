@@ -6,7 +6,7 @@ import { Container } from "@material-ui/core";
 // Grid para maquetacion de cards
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { Divider } from "@material-ui/core";
+// import { Divider } from "@material-ui/core";
 import Navcontent from "../components/Navcontent";
 //Axios
 import axios from 'axios';
@@ -65,7 +65,7 @@ class Inicio extends React.Component {
             <Grid item md={4} xs={12} lg={4} sm={6}>
               <Cards titulo={this.state.art1.Nombre} fecha={this.state.art1.Fecha}  ruta={this.state.art1.ImgUrl}/>
             </Grid>
-            <Grid item md={4} xs={12} lg={4} sm={6}>
+            {/* <Grid item md={4} xs={12} lg={4} sm={6}>
               <Cards titulo={this.state.art2.Nombre} fecha={this.state.art2.Fecha}  ruta={this.state.art2.ImgUrl}/>
             </Grid>
             <Grid item md={4} xs={12} lg={4} sm={12}>
@@ -96,8 +96,8 @@ class Inicio extends React.Component {
             </Grid>
             <Grid item md={4} xs={12} lg={4} sm={6}>
               <Cards titulo={this.state.art4.Nombre} fecha={this.state.art4.Fecha}  ruta={this.state.art4.ImgUrl}/>
-            </Grid>
-          </Grid>
+            </Grid>*/}
+          </Grid> 
         </Container>
 
       </div>
