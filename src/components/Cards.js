@@ -40,7 +40,7 @@ export default function Cards(props) {
           {props.titulo}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          Intro del artículo 
+          {props.fecha} 
         </Typography>
       </CardContent>
       <CardActions>

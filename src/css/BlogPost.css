@@ -16,3 +16,6 @@
   flex-wrap: wrap;
   margin-bottom: 10px;
 }
+.text-align{
+text-align: justify;
+}

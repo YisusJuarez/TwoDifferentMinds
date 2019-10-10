@@ -23,15 +23,27 @@ import axios from 'axios';
 
 class BlogPost extends React.Component {
   state = {
-    datosArticulo: []
+    Titulo: [],
+    Fecha: [],
+    Body: [],
+    ImgUrl: [],
+    UserName:[]
   }
-  componentDidMount() {
+  componentWillMount() {
     //OBTENER RUTA DE ARTICULO
     // {this.props.match.params.ruta}
-    axios.get(`https://jsonplaceholder.typicode.com/users`)
+    axios.get(`http://localhost:8082/api/articulo/${this.props.match.params.articuloId}`)
       .then(res => {
         const datosArticulo = res.data;
-        this.setState({ datosArticulo });
+        this.setState({ 
+        Titulo:datosArticulo.map(nombre=>nombre.Nombre),
+        Fecha:datosArticulo.map(nombre=>nombre.Fecha),
+        Body:datosArticulo.map(nombre=>nombre.Body),
+        ImgUrl:datosArticulo.map(nombre=>nombre.ImgUrl),
+        UserName:datosArticulo.map(nombre=>nombre.UserName),
+        
+        });
+        // console.log(this.state.datosArticulo.map(nombre=>nombre.Nombre))
       })
   }
   Facebook = () => {
@@ -53,52 +65,20 @@ class BlogPost extends React.Component {
           <Grid container spacing={4}>
             <Grid item xl={9} lg={9} md={9} sm={12} xs={12}>
               <Typography align="left" variant="h4">
-                FaceApp, ¿Un Peligro Para Nuestros Datos?
+                {this.state.Titulo}
+            </Typography>
+            <Typography align="left" variant="subtitle1" color="textSecondary">
+                {"Escrito por: "+ this.state.UserName}
             </Typography>
               <Typography align="left" variant="subtitle1" color="textSecondary">
-                21/08/2019
+                {this.state.Fecha}
             </Typography>
               <Card className="img-card">
                 <CardMedia className="img-art" image={Imagen} title="titulo" />
               </Card>
-              <p Style="text-align: justify;">
-                Las modas son pasajeras y pueden comenzar de un solo click, de
-                hacer algo viral, pueden provenir de un video, de una imagen que
-                es difundida a todo el mundo a trav&eacute;s de las distintas
-                redes que se interconectan por el internet; en esta ocasi&oacute;n
-                le toco a la aplicaci&oacute;n de FaceApp, la cual usa filtros
-                para mostrar la apariencia de las personas al llegar a la vejez.
-            </p>
-              <p Style="text-align: justify;">&nbsp;</p>
-              <p Style="text-align: justify;">
-                La persona que no haya visto alguna imagen con este filtro, de
-                plano no ten&iacute;a internet, puesto que miles de artistas y
-                youtubers optaron por hacer del filtro un nuevo challenge,
-                haciendo tr&aacute;fico en las redes sociales alrededor del mundo
-                por ver c&oacute;mo eran de viejitos, en instagram se encontraban
-                seguidas y que decir de Facebook.
-            </p>
-              <p Style="text-align: justify;">&nbsp;</p>
-              <p Style="text-align: justify;">
-                Sin embargo no todo es diversi&oacute;n, puesto que la
-                aplicaci&oacute;n utiliza nuestros valiosos datos personales
-                teniendo como consecuencia que lleguen a manos de terceras
-                personas y el uso que le den, no sea tan bueno. No es culpa solo
-                de las aplicaciones que muestran una pol&iacute;tica de privacidad
-                muy opaca, sino que, a las personas les da &ldquo;flojera&rdquo;
-                leer esas pol&iacute;ticas, debido a esto vamos perdiendo nuestra
-                privacidad en las redes digitales.
-            </p>
-              <p Style="text-align: justify;">&nbsp;</p>
-              <p Style="text-align: justify;">
-                FaceApp es una aplicaci&oacute;n rusa, donde nuestros datos son
-                resguardados por los gobiernos donde se instale la App, no
-                obstante, tambi&eacute;n son usados para proporcionar contenido
-                personalizado, as&iacute; como&nbsp; para monitorear la calidad
-                del servicio y por si fuera poco para diagnosticar o solucionar
-                problemas que se hayan tenido con la app al usarla, es aqu&iacute;
-                donde pensamos &iquest;en serio vale la pena estar a la moda?
-            </p>
+              <p className="text-align" dangerouslySetInnerHTML={{__html:this.state.Body}}>
+                
+              </p>
               <Typography align="left" variant="subtitle1" color="textSecondary">
                 TEMAS:
             </Typography>
