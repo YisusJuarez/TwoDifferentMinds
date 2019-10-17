@@ -8,20 +8,23 @@ import Footer from "../components/Footer";
 //Browser Router para enlazar vistas
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-class App extends React.Component{
-  render(){
-    return(
+class App extends React.Component {
+
+
+  render() {
+    return (
       <div className="App">
-      {/* <ButtonAppBar /> */}
-      <BrowserRouter>
-        <Switch>
-          <Route  exact path="/" component={Inicio} />
-          <Route exact path="/articulo/:articuloId" component={BlogPost} />
-          <Route render={()=><div>404 Not Found</div>} />
-        </Switch>
-      </BrowserRouter>
-      <Footer></Footer>
-    </div>
+        {/* <ButtonAppBar /> */}
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Inicio} />
+            <Route exact path="/articulo/undefined" component={Inicio} />
+            <Route path="/articulo/:articuloId" component={BlogPost} />
+            <Route render={() => <div>404 Not Found</div>} />
+          </Switch>
+        </BrowserRouter>
+        <Footer></Footer>
+      </div>
     )
   }
 }

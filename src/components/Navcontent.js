@@ -27,18 +27,18 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const sections = [
-  "iOS",
-  "Android",
-  "MacOS",
-  "Windows",
-  "Diario",
-  "Opinión",
-  "Ciencia",
-  "IA"
-];
+// const sections = [
+//   "iOS",
+//   "Android",
+//   "MacOS",
+//   "Windows",
+//   "Diario",
+//   "Opinión",
+//   "Ciencia",
+//   "IA"
+// ];
 
-export default function Navcontent() {
+export default function Navcontent(props) {
   const classes = useStyles();
   return (
     <div className={classes.bg}>
@@ -48,7 +48,7 @@ export default function Navcontent() {
           variant="dense"
           className={classes.toolbarSecondary}
         >
-          {sections.map(section => (
+          {/* {props.section.map(section => (
             <Link
               color="inherit"
               noWrap
@@ -59,7 +59,7 @@ export default function Navcontent() {
             >
               {section}
             </Link>
-          ))}
+          ))} */}
         </Toolbar>
       </Container>
     </div>

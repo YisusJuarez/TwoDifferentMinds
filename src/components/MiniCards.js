@@ -6,7 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Imagen from "../card-example.jpg";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   cardGrid: {
@@ -28,20 +28,22 @@ const useStyles = makeStyles(theme => ({
 
 export default function MiniCards(props) {
   const classes = useStyles();
-
+  var img = `http://localhost:8082/api/img/${props.ImgUrl}`
   return (
     <Card className={classes.card}>
-      <CardMedia className={classes.cardMedia} image={Imagen} title="titulo" />
+      <CardMedia className={classes.cardMedia} image={img} title={props.ImgUrl} />
 
       <CardContent className={classes.cardContent}>
-        <Typography  variant="subtitle1" gutterBottom>
+        <Typography variant="subtitle1" gutterBottom>
           {props.titulo}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained" size="small" >
-          Leer más
+        <Link to={`/articulo/${props.ruta}`}>
+          <Button variant="contained" size="small">
+            Leer más
         </Button>
+        </Link>
       </CardActions>
     </Card>
   );

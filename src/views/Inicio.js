@@ -6,7 +6,7 @@ import { Container } from "@material-ui/core";
 // Grid para maquetacion de cards
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-// import { Divider } from "@material-ui/core";
+import { Divider } from "@material-ui/core";
 import Navcontent from "../components/Navcontent";
 //Axios
 import axios from 'axios';
@@ -30,19 +30,21 @@ class Inicio extends React.Component {
     console.log("DID MOUNT")
     axios.get(`http://localhost:8082/api/inicio`)
       .then(res => {
-        let datosArticuloInicio = res.data.data;
-        this.setState({
-          art1: datosArticuloInicio[0],
-          art2: datosArticuloInicio[1],
-          art3: datosArticuloInicio[2],
-          art4: datosArticuloInicio[3],
-          art5: datosArticuloInicio[4],
-          art6: datosArticuloInicio[5],
-          art7: datosArticuloInicio[6],
-          art8: datosArticuloInicio[7],
-          art9: datosArticuloInicio[8]
-        });
         console.log("OBTENIENDO DATOS")
+        if(res){
+          let datosArticuloInicio = res.data.data;
+          this.setState({
+            art1: datosArticuloInicio[0],
+            art2: datosArticuloInicio[1],
+            art3: datosArticuloInicio[2],
+            art4: datosArticuloInicio[3],
+            art5: datosArticuloInicio[4],
+            art6: datosArticuloInicio[5],
+            art7: datosArticuloInicio[6],
+            art8: datosArticuloInicio[7],
+            art9: datosArticuloInicio[8]
+          });    
+        }     
       })
       .catch(error => {
         console.log(error);
@@ -51,21 +53,18 @@ class Inicio extends React.Component {
   }
   render() {
     return (
-
-
       <div>
-        <Navcontent></Navcontent>
+        <Navcontent section={["ok"]}></Navcontent>
         <Header />
         <Container maxWidth="lg">
           <Typography variant="h5" align="left" gutterBottom>
             Artículos Recientes
           </Typography>
-
           <Grid container spacing={2}>
             <Grid item md={4} xs={12} lg={4} sm={6}>
               <Cards titulo={this.state.art1.Nombre} fecha={this.state.art1.Fecha}  ruta={this.state.art1.ImgUrl}/>
             </Grid>
-            {/* <Grid item md={4} xs={12} lg={4} sm={6}>
+             <Grid item md={4} xs={12} lg={4} sm={6}>
               <Cards titulo={this.state.art2.Nombre} fecha={this.state.art2.Fecha}  ruta={this.state.art2.ImgUrl}/>
             </Grid>
             <Grid item md={4} xs={12} lg={4} sm={12}>
@@ -75,28 +74,28 @@ class Inicio extends React.Component {
               <Cards titulo={this.state.art4.Nombre} fecha={this.state.art4.Fecha}  ruta={this.state.art4.ImgUrl}/>
             </Grid>
             <Grid item md={4} xs={12} lg={4} sm={6}>
-              <Cards titulo={this.state.art4.Nombre} fecha={this.state.art4.Fecha}  ruta={this.state.art4.ImgUrl}/>
+              <Cards titulo={this.state.art5.Nombre} fecha={this.state.art5.Fecha}  ruta={this.state.art5.ImgUrl}/>
             </Grid>
-          </Grid>
+           </Grid>
 
 
-          <Divider variant="fullWidth" className="divider" />
+         <Divider variant="fullWidth" className="divider" />
           <Typography variant="h5" align="left" gutterBottom>
             Artículos Recomendados
           </Typography>
           <Grid container spacing={2}>
             <Grid item md={4} xs={12} lg={4} sm={6}>
-              <Cards titulo={this.state.art4.Nombre} fecha={this.state.art4.Fecha}  ruta={this.state.art4.ImgUrl}/>
+              <Cards titulo={this.state.art6.Nombre} fecha={this.state.art6.Fecha}  ruta={this.state.art6.ImgUrl}/>
             </Grid>
             <Grid item md={8} xs={12} lg={8} sm={6}>
-              <Cards titulo={this.state.art4.Nombre} fecha={this.state.art4.Fecha}  ruta={this.state.art4.ImgUrl}/>
+              <Cards titulo={this.state.art7.Nombre} fecha={this.state.art7.Fecha}  ruta={this.state.art7.ImgUrl}/>
             </Grid>
             <Grid item md={8} xs={12} lg={8} sm={6}>
-              <Cards titulo={this.state.art4.Nombre} fecha={this.state.art4.Fecha} ruta={this.state.art4.ImgUrl}/>
+              <Cards titulo={this.state.art8.Nombre} fecha={this.state.art8.Fecha} ruta={this.state.art8.ImgUrl}/>
             </Grid>
             <Grid item md={4} xs={12} lg={4} sm={6}>
-              <Cards titulo={this.state.art4.Nombre} fecha={this.state.art4.Fecha}  ruta={this.state.art4.ImgUrl}/>
-            </Grid>*/}
+              <Cards titulo={this.state.art9.Nombre} fecha={this.state.art9.Fecha}  ruta={this.state.art9.ImgUrl}/>
+            </Grid>
           </Grid> 
         </Container>
 

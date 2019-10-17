@@ -22,29 +22,66 @@ import axios from 'axios';
 
 class BlogPost extends React.Component {
   state = {
-    Titulo: [],
-    Fecha: [],
-    Body: [],
-    ImgUrl: [],
-    UserName:[]
+    Art1: [],
+    Art2: [],
+    Art3: [],
+    Art4:[],
+    Art5:[],
+    actualizado: true
   }
-  componentWillMount() {
+  componentDidMount() {
     //OBTENER RUTA DE ARTICULO
     // {this.props.match.params.ruta}
     axios.get(`http://localhost:8082/api/articulo/${this.props.match.params.articuloId}`)
+
       .then(res => {
-        const datosArticulo = res.data;
-        this.setState({ 
-        Titulo:datosArticulo.map(nombre=>nombre.Nombre),
-        Fecha:datosArticulo.map(nombre=>nombre.Fecha),
-        Body:datosArticulo.map(nombre=>nombre.Body),
-        ImgUrl:datosArticulo.map(nombre=>nombre.ImgUrl),
-        UserName:datosArticulo.map(nombre=>nombre.UserName),
-        
+        const datosArticulo = res.data.data[0];
+        const datosArticulo2 = res.data.data[1];
+        const datosArticulo3 = res.data.data[2];
+        const datosArticulo4 = res.data.data[3];
+        const datosArticulo5 = res.data.data[4];
+        this.setState({
+          Art1: datosArticulo,
+          Art2: datosArticulo2,
+          Art3: datosArticulo3,
+          Art4: datosArticulo4,
+          Art5: datosArticulo5
         });
-        // console.log(this.state.datosArticulo.map(nombre=>nombre.Nombre))
+       
+        console.log(res.data.data[3].Nombre)
+        //  console.log(this.state.datosArticulo.map(nombre=>nombre.Nombre))
       })
+
   }
+  componentDidUpdate(prevProps) {
+    // Uso tipico (no olvides de comparar los props):
+    if (prevProps.match.params.articuloId !== this.props.match.params.articuloId) {
+      axios.get(`http://localhost:8082/api/articulo/${this.props.match.params.articuloId}`)
+
+        .then(res => {
+          const datosArticulo = res.data.data[0];
+          const datosArticulo2 = res.data.data[1];
+          const datosArticulo3 = res.data.data[2];
+          const datosArticulo4 = res.data.data[3];
+          const datosArticulo5 = res.data.data[4];
+          this.setState({
+            Art1: datosArticulo,
+            Art2: datosArticulo2,
+            Art3: datosArticulo3,
+            Art4: datosArticulo4,
+            Art5: datosArticulo5,
+            actualizado: true
+          });
+          
+        
+          //  console.log(this.state.datosArticulo.map(nombre=>nombre.Nombre))
+        })
+      window.scrollTo(0, 0);
+    }
+
+  }
+
+
   Facebook = () => {
     window.location.assign('https://www.facebook.com/TwoDifferentMinds');
   }
@@ -53,33 +90,33 @@ class BlogPost extends React.Component {
   }
   Twitter = () => {
     window.location.assign('https://twitter.com/TDifferentMinds');
-    
+
   }
   render() {
-    var img = `http://localhost:8082/api/${this.state.ImgUrl}`
+    var img = `http://localhost:8082/api/img/${this.state.Art1.ImgUrl}`;
     return (
       <div>
-        <Navcontent></Navcontent>
+        <Navcontent section={["tec", "ok"]}></Navcontent>
         <Header></Header>
         <Container maxWidth="lg" className="espacio-header">
           <Grid container spacing={4}>
             <Grid item xl={9} lg={9} md={9} sm={12} xs={12}>
               <Typography align="left" variant="h4">
-                {this.state.Titulo}
-            </Typography>
-            <Typography align="left" variant="subtitle1" color="textSecondary">
-                {"Escrito por: "+ this.state.UserName}
-            </Typography>
+                {this.state.Art1.Nombre}
+              </Typography>
               <Typography align="left" variant="subtitle1" color="textSecondary">
-                {this.state.Fecha}
-            </Typography>
+                {"Escrito por: " + this.state.Art1.UserName}
+              </Typography>
+              <Typography align="left" variant="subtitle1" color="textSecondary">
+                {this.state.Art1.Fecha}
+              </Typography>
               <Card className="img-card">
-                <CardMedia className="img-art" image={img} title="titulo" />
+                <CardMedia className="img-art" image={img} title={this.props.match.params.articuloId} />
               </Card>
-              <p className="text-align" dangerouslySetInnerHTML={{__html:this.state.Body}}>
-                
+              <p className="text-align" dangerouslySetInnerHTML={{ __html: this.state.Art1.Body }}>
+
               </p>
-              <Typography align="left" variant="subtitle1" color="textSecondary">
+              {/* <Typography align="left" variant="subtitle1" color="textSecondary">
                 TEMAS:
             </Typography>
               <div className="tags">
@@ -88,7 +125,7 @@ class BlogPost extends React.Component {
                 <Tags />
                 <Tags />
                 <Tags />
-              </div>
+              </div> */}
               <Divider />
               <Typography
                 align="left"
@@ -100,10 +137,10 @@ class BlogPost extends React.Component {
             </Typography>
               <Grid container spacing={2}>
                 <Grid item xl={6} sm={6} md={6} xs={12}>
-                  <MiniCards titulo="Titulo del articulo" />
+                  <MiniCards titulo={this.state.Art2.Nombre} ImgUrl={this.state.Art2.ImgUrl} ruta={this.state.Art2.Url} />
                 </Grid>
                 <Grid item xl={6} sm={6} md={6} xs={12}>
-                  <MiniCards titulo="Titulo del articulo" />
+                  <MiniCards titulo={this.state.Art3.Nombre} ImgUrl={this.state.Art3.ImgUrl} ruta={this.state.Art3.Url} />
                 </Grid>
               </Grid>
             </Grid>
@@ -129,7 +166,7 @@ class BlogPost extends React.Component {
                     <FontAwesomeIcon
                       icon={faTwitter}
                       size="2x"
-                      style={{ color: "#00acee", margin: 5, cursor: "pointer"}}
+                      style={{ color: "#00acee", margin: 5, cursor: "pointer" }}
                       onClick={this.Twitter}
                     />
                     <FontAwesomeIcon
@@ -148,14 +185,14 @@ class BlogPost extends React.Component {
                       variant="subtitle1"
                       color="textSecondary"
                     >
-                      MÁS ARTÍCULOS <p>{this.props.match.params.idUrl}</p>
+                      MÁS ARTÍCULOS
                     </Typography>
                     <Grid container spacing={2}>
                       <Grid item xl={12} lg={12} md={12} sm={6} xs={12}>
-                        <MiniCards titulo="Titulo del articulo" />
+                        <MiniCards titulo={this.state.Art4.Nombre} ImgUrl={this.state.Art4.ImgUrl} ruta={this.state.Art4.Url} />
                       </Grid>
                       <Grid item xl={12} lg={12} md={12} sm={6} xs={12}>
-                        <MiniCards titulo="Titulo del articulo" />
+                        <MiniCards titulo={this.state.Art5.Nombre} ImgUrl={this.state.Art5.ImgUrl} ruta={this.state.Art5.Url} />
                       </Grid>
                     </Grid>
                   </Grid>

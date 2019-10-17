@@ -6,7 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 //Import de imagen de ejemplo
 
 
@@ -31,10 +31,15 @@ const useStyles = makeStyles(theme => ({
 
 export default function Cards(props) {
   const classes = useStyles();
-  var img = `http://localhost:8082/api/${props.ruta}`
+  if(props.ruta){
+    var img = `http://localhost:8082/api/img/${props.ruta}`
+  }else{
+     img = "undefined";
+  }
+  
   return (
     <Card className={classes.card}>
-      <CardMedia className={classes.cardMedia} image={img} title="titulo" />
+      <CardMedia className={classes.cardMedia} image={img} title={props.ruta} />
       <CardContent className={classes.cardContent}>
         <Typography gutterBottom variant="h5" component="h2">
           {props.titulo}
@@ -44,9 +49,9 @@ export default function Cards(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained" size="small" >
+        {/* <Button variant="contained" size="small" >
           Compartir
-        </Button>
+        </Button> */}
         <Link to={`/articulo/${props.ruta}`}>
           <Button variant="contained" size="small" >
             Leer más
