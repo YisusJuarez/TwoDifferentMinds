@@ -7,7 +7,7 @@ import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import Divider from "@material-ui/core/Divider";
 import MiniCards from "../components/MiniCards";
-import Tags from "../components/Tags";
+// import Tags from "../components/Tags";
 import Header from "../components/Header";
 import Navcontent from "../components/Navcontent";
 /*Icons FontAwesome */
@@ -27,54 +27,48 @@ class BlogPost extends React.Component {
     Art3: [],
     Art4:[],
     Art5:[],
-    actualizado: true
+    section:[]
   }
   componentDidMount() {
     //OBTENER RUTA DE ARTICULO
     // {this.props.match.params.ruta}
     axios.get(`http://localhost:8082/api/articulo/${this.props.match.params.articuloId}`)
-
       .then(res => {
         const datosArticulo = res.data.data[0];
         const datosArticulo2 = res.data.data[1];
         const datosArticulo3 = res.data.data[2];
         const datosArticulo4 = res.data.data[3];
         const datosArticulo5 = res.data.data[4];
+        const datosArticulo6 = res.data.data[5];
         this.setState({
           Art1: datosArticulo,
           Art2: datosArticulo2,
           Art3: datosArticulo3,
           Art4: datosArticulo4,
-          Art5: datosArticulo5
+          Art5: datosArticulo5,
+          section:datosArticulo6
         });
-       
-        console.log(res.data.data[3].Nombre)
-        //  console.log(this.state.datosArticulo.map(nombre=>nombre.Nombre))
       })
 
   }
   componentDidUpdate(prevProps) {
-    // Uso tipico (no olvides de comparar los props):
     if (prevProps.match.params.articuloId !== this.props.match.params.articuloId) {
       axios.get(`http://localhost:8082/api/articulo/${this.props.match.params.articuloId}`)
-
         .then(res => {
           const datosArticulo = res.data.data[0];
           const datosArticulo2 = res.data.data[1];
           const datosArticulo3 = res.data.data[2];
           const datosArticulo4 = res.data.data[3];
           const datosArticulo5 = res.data.data[4];
+          const datosArticulo6 = res.data.data[5];
           this.setState({
             Art1: datosArticulo,
             Art2: datosArticulo2,
             Art3: datosArticulo3,
             Art4: datosArticulo4,
             Art5: datosArticulo5,
-            actualizado: true
+            section:datosArticulo6
           });
-          
-        
-          //  console.log(this.state.datosArticulo.map(nombre=>nombre.Nombre))
         })
       window.scrollTo(0, 0);
     }
@@ -96,7 +90,7 @@ class BlogPost extends React.Component {
     var img = `http://localhost:8082/api/img/${this.state.Art1.ImgUrl}`;
     return (
       <div>
-        <Navcontent section={["tec", "ok"]}></Navcontent>
+        <Navcontent section={this.state.section}></Navcontent>
         <Header></Header>
         <Container maxWidth="lg" className="espacio-header">
           <Grid container spacing={4}>

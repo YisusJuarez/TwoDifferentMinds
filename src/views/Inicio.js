@@ -23,14 +23,13 @@ class Inicio extends React.Component {
     art7: [],
     art8: [],
     art9: [],
+    section:[]
   };
 
   componentDidMount() {
     //OBTENER ARTICULOS DE INICIO
-    console.log("DID MOUNT")
     axios.get(`http://localhost:8082/api/inicio`)
       .then(res => {
-        console.log("OBTENIENDO DATOS")
         if(res){
           let datosArticuloInicio = res.data.data;
           this.setState({
@@ -42,19 +41,19 @@ class Inicio extends React.Component {
             art6: datosArticuloInicio[5],
             art7: datosArticuloInicio[6],
             art8: datosArticuloInicio[7],
-            art9: datosArticuloInicio[8]
-          });    
-        }     
+            art9: datosArticuloInicio[8],
+            section:datosArticuloInicio[9]
+          }); 
+        } 
       })
       .catch(error => {
         console.log(error);
-
       });
   }
   render() {
     return (
       <div>
-        <Navcontent section={["ok"]}></Navcontent>
+        <Navcontent section={this.state.section}></Navcontent>
         <Header />
         <Container maxWidth="lg">
           <Typography variant="h5" align="left" gutterBottom>
@@ -77,8 +76,6 @@ class Inicio extends React.Component {
               <Cards titulo={this.state.art5.Nombre} fecha={this.state.art5.Fecha}  ruta={this.state.art5.ImgUrl}/>
             </Grid>
            </Grid>
-
-
          <Divider variant="fullWidth" className="divider" />
           <Typography variant="h5" align="left" gutterBottom>
             Artículos Recomendados
@@ -98,7 +95,6 @@ class Inicio extends React.Component {
             </Grid>
           </Grid> 
         </Container>
-
       </div>
     );
   }

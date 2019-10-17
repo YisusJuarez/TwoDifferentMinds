@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
-import Link from "@material-ui/core/Link";
+import { Link as Link2} from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -23,20 +23,11 @@ const useStyles = makeStyles(theme => ({
   },
   toolbarLink: {
     padding: theme.spacing(1),
-    flexShrink: 0
+    flexShrink: 0,
+    color:"black",
+    textDecoration: "none"
   }
 }));
-
-// const sections = [
-//   "iOS",
-//   "Android",
-//   "MacOS",
-//   "Windows",
-//   "Diario",
-//   "Opinión",
-//   "Ciencia",
-//   "IA"
-// ];
 
 export default function Navcontent(props) {
   const classes = useStyles();
@@ -46,20 +37,15 @@ export default function Navcontent(props) {
         <Toolbar
           component="nav"
           variant="dense"
-          className={classes.toolbarSecondary}
+          className={classes.toolbarSecondary}  
         >
-          {/* {props.section.map(section => (
-            <Link
-              color="inherit"
-              noWrap
-              key={section}
-              variant="body2"
-              href="#"
-              className={classes.toolbarLink}
-            >
-              {section}
-            </Link>
-          ))} */}
+          <Link2 className={classes.toolbarLink} to={`/`}>Inicio</Link2>
+          {props.section.map((section, id) => (
+            <Link2 key={id} className={classes.toolbarLink} to={`/seccion/${section.IdSection}`}>
+              {section.Nombre}
+            </Link2>
+            
+          ))} 
         </Toolbar>
       </Container>
     </div>

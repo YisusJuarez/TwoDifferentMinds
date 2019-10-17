@@ -4,9 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Inicio from "../views/Inicio";
 import BlogPost from "../views/BlogPost";
 import Footer from "../components/Footer";
-
-//Browser Router para enlazar vistas
-// import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import CategoryPosts from "../views/CategoryPosts";
 
 class App extends React.Component {
 
@@ -19,6 +17,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Inicio} />
             <Route exact path="/articulo/undefined" component={Inicio} />
+            <Route exact path="/seccion/:section" component={CategoryPosts} />
             <Route path="/articulo/:articuloId" component={BlogPost} />
             <Route render={() => <div>404 Not Found</div>} />
           </Switch>
