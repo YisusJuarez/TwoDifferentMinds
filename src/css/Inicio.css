@@ -21,3 +21,12 @@ float: left;
     margin-bottom: 2rem !important;
     margin-top: 4rem !important;
 }
+.colorButton{
+    background-color:#4fa0cb  !important;
+    color: white !important;
+    margin-top: 40px !important;
+    margin-bottom: 60px !important;
+    padding: 10px !important;
+    font-size: 15px !important;
+}
+

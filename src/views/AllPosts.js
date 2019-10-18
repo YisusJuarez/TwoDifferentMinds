@@ -6,13 +6,13 @@ import axios from 'axios';
 import "../css/CategoryPosts.css";
 import Grid from "@material-ui/core/Grid";
 import { Container } from "@material-ui/core";
-class CategoryPosts extends React.Component {
+class AllPosts extends React.Component {
     state = {
         articulosBySection: [],
         nextArt: 6
     }
     componentDidMount() {
-        axios.get(`http://localhost:8082/api/seccion/${this.props.match.params.section}`)
+        axios.get(`http://localhost:8082/api/inicio/all`)
             .then(res => {
                 const datosArticulo = res.data.data;
                 this.setState({
@@ -24,7 +24,7 @@ class CategoryPosts extends React.Component {
     }
     nextrows = () => {
         var nextActual = this.state.nextArt;
-        axios.get(`http://localhost:8082/api/seccion/${this.props.match.params.section}/${this.state.nextArt}`)
+        axios.get(`http://localhost:8082/api/inicio/all/${this.state.nextArt}`)
             .then(res => {
                 const datosArticulo = res.data.data;
                 this.setState({
@@ -58,4 +58,4 @@ class CategoryPosts extends React.Component {
         )
     }
 }
-export default CategoryPosts;
+export default AllPosts;

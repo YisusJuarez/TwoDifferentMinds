@@ -3,8 +3,10 @@ import Header from "../components/Header";
 import "../css/Inicio.css";
 import Cards from "../components/Cards";
 import { Container } from "@material-ui/core";
+import { Link } from 'react-router-dom';
 // Grid para maquetacion de cards
 import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Divider } from "@material-ui/core";
 import Navcontent from "../components/Navcontent";
@@ -93,7 +95,10 @@ class Inicio extends React.Component {
             <Grid item md={4} xs={12} lg={4} sm={6}>
               <Cards titulo={this.state.art9.Nombre} fecha={this.state.art9.Fecha}  ruta={this.state.art9.ImgUrl}/>
             </Grid>
-          </Grid> 
+          </Grid>
+          <Link to={`/inicio/all`}><Button className="colorButton" variant="contained" size="small" >
+          Más Artículos
+        </Button></Link>
         </Container>
       </div>
     );
