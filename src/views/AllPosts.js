@@ -12,7 +12,7 @@ class AllPosts extends React.Component {
         nextArt: 6
     }
     componentDidMount() {
-        axios.get(`http://localhost:8082/api/inicio/all`)
+        axios.get(`http://prosisdev.sytes.net:84/api/inicio/all`)
             .then(res => {
                 const datosArticulo = res.data.data;
                 this.setState({
@@ -24,7 +24,7 @@ class AllPosts extends React.Component {
     }
     nextrows = () => {
         var nextActual = this.state.nextArt;
-        axios.get(`http://localhost:8082/api/inicio/all/${this.state.nextArt}`)
+        axios.get(`http://prosisdev.sytes.net:84/api/inicio/all/${this.state.nextArt}`)
             .then(res => {
                 const datosArticulo = res.data.data;
                 this.setState({

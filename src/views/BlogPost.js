@@ -32,7 +32,7 @@ class BlogPost extends React.Component {
   componentDidMount() {
     //OBTENER RUTA DE ARTICULO
     // {this.props.match.params.ruta}
-    axios.get(`http://localhost:8082/api/articulo/${this.props.match.params.articuloId}`)
+    axios.get(`http://prosisdev.sytes.net:84/api/articulo/${this.props.match.params.articuloId}`)
       .then(res => {
         const datosArticulo = res.data.data[0];
         const datosArticulo2 = res.data.data[1];
@@ -53,7 +53,7 @@ class BlogPost extends React.Component {
   }
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.articuloId !== this.props.match.params.articuloId) {
-      axios.get(`http://localhost:8082/api/articulo/${this.props.match.params.articuloId}`)
+      axios.get(`http://prosisdev.sytes.net:84/api/articulo/${this.props.match.params.articuloId}`)
         .then(res => {
           const datosArticulo = res.data.data[0];
           const datosArticulo2 = res.data.data[1];
@@ -87,7 +87,7 @@ class BlogPost extends React.Component {
 
   }
   render() {
-    var img = `http://localhost:8082/api/img/${this.state.Art1.ImgUrl}`;
+    var img = `http://prosisdev.sytes.net:84/api/img/${this.state.Art1.ImgUrl}`;
     return (
       <div>
         <Navcontent section={this.state.section}></Navcontent>

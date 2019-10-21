@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
 export default function Cards(props) {
   const classes = useStyles();
   if(props.ruta){
-    var img = `http://localhost:8082/api/img/${props.ruta}`
+    var img = `http://prosisdev.sytes.net:84/api/img/${props.ruta}`
   }else{
      img = "undefined";
   }

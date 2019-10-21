@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function MiniCards(props) {
   const classes = useStyles();
-  var img = `http://localhost:8082/api/img/${props.ImgUrl}`
+  var img = `http://prosisdev.sytes.net:84/api/img/${props.ImgUrl}`
   return (
     <Card className={classes.card}>
       <CardMedia className={classes.cardMedia} image={img} title={props.ImgUrl} />
