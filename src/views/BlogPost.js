@@ -8,7 +8,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Divider from "@material-ui/core/Divider";
 import MiniCards from "../components/MiniCards";
 // import Tags from "../components/Tags";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 import Navcontent from "../components/Navcontent";
 /*Icons FontAwesome */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,15 +19,17 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import Hidden from "@material-ui/core/Hidden";
 /*AXIOS*/
 import axios from 'axios';
+/* SHARED BUTTON (pendiente)*/
+// import FacebookShare from "../components/FacebookShare";
 
 class BlogPost extends React.Component {
   state = {
     Art1: [],
     Art2: [],
     Art3: [],
-    Art4:[],
-    Art5:[],
-    section:[]
+    Art4: [],
+    Art5: [],
+    section: []
   }
   componentDidMount() {
     //OBTENER RUTA DE ARTICULO
@@ -46,7 +48,7 @@ class BlogPost extends React.Component {
           Art3: datosArticulo3,
           Art4: datosArticulo4,
           Art5: datosArticulo5,
-          section:datosArticulo6
+          section: datosArticulo6
         });
       })
 
@@ -67,7 +69,7 @@ class BlogPost extends React.Component {
             Art3: datosArticulo3,
             Art4: datosArticulo4,
             Art5: datosArticulo5,
-            section:datosArticulo6
+            section: datosArticulo6
           });
         })
       window.scrollTo(0, 0);
@@ -91,23 +93,23 @@ class BlogPost extends React.Component {
     return (
       <div>
         <Navcontent section={this.state.section}></Navcontent>
-        <Header></Header>
         <Container maxWidth="lg" className="espacio-header">
           <Grid container spacing={4}>
             <Grid item xl={9} lg={9} md={9} sm={12} xs={12}>
-              <Typography align="left" variant="h4">
+              <Card>
+                <CardMedia className="img-art" image={img} title={this.props.match.params.articuloId} />
+              </Card>
+              <Typography className="titulo-espacio" align="left" variant="h4">
                 {this.state.Art1.Nombre}
               </Typography>
-              <Typography align="left" variant="subtitle1" color="textSecondary">
-                {"Escrito por: " + this.state.Art1.UserName}
+              <Typography align="left" variant="subtitle1" color="textSecondary" className="color-autor">
+                {this.state.Art1.UserName + "  "}
               </Typography>
               <Typography align="left" variant="subtitle1" color="textSecondary">
                 {this.state.Art1.Fecha}
               </Typography>
-              <Card className="img-card">
-                <CardMedia className="img-art" image={img} title={this.props.match.params.articuloId} />
-              </Card>
-              <p className="text-align" dangerouslySetInnerHTML={{ __html: this.state.Art1.Body }}>
+              <Divider />
+              <p className="text-align text-interlineado" dangerouslySetInnerHTML={{ __html: this.state.Art1.Body }}>
 
               </p>
               {/* <Typography align="left" variant="subtitle1" color="textSecondary">
@@ -171,6 +173,7 @@ class BlogPost extends React.Component {
                     />
                   </Typography>
                   <Divider />
+                  {/* <FacebookShare></FacebookShare> */}
                 </Grid>
                 <Hidden smDown>
                   <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
