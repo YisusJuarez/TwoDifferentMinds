@@ -32,6 +32,7 @@ class BlogPost extends React.Component {
     section: []
   }
   componentDidMount() {
+    window.scrollTo(0, 0);
     //OBTENER RUTA DE ARTICULO
     // {this.props.match.params.ruta}
     axios.get(`http://prosisdev.sytes.net:84/api/articulo/${this.props.match.params.articuloId}`)
@@ -51,9 +52,10 @@ class BlogPost extends React.Component {
           section: datosArticulo6
         });
       })
-
+      
   }
   componentDidUpdate(prevProps) {
+    window.scrollTo(0, 0);
     if (prevProps.match.params.articuloId !== this.props.match.params.articuloId) {
       axios.get(`http://prosisdev.sytes.net:84/api/articulo/${this.props.match.params.articuloId}`)
         .then(res => {
@@ -72,7 +74,7 @@ class BlogPost extends React.Component {
             section: datosArticulo6
           });
         })
-      window.scrollTo(0, 0);
+     
     }
 
   }
